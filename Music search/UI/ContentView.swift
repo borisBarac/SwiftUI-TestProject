@@ -8,9 +8,23 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct DetailView: View {
     var body: some View {
-        Text("Hello, World!")
+        Text("Detail")
+    }
+}
+
+struct ContentView: View {
+    @State var showingDetail = false
+
+    var body: some View {
+        Button(action: {
+            self.showingDetail = true
+        }) {
+            Text("Show Detail")
+        }.sheet(isPresented: $showingDetail) {
+            DetailView()
+        }
     }
 }
 
