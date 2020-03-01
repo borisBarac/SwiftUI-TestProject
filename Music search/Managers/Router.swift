@@ -47,6 +47,7 @@ final class Router {
     enum RouterError: Error {
         case canNotCalculateRoute
         case canNotMakeView
+        case castingData
     }
 
     var windows: [UIWindow] {
@@ -70,11 +71,17 @@ final class Router {
         }
     }
 
-    func makeView(route: Route, data: Any?) throws -> some View {
+    func makeView(route: Route, data: Any?) throws -> AnyView {
         let route = try? calculate(route: route)
         switch route?.routePath {
         case .main:
-            return ContentView(route: route, data: nil)
+            return AnyView(ContentView(route: route, data: nil))
+        case .detail:
+            guard let result = data as? ItunesResult else {
+                throw RouterError.castingData
+            }
+
+            return AnyView(DetailView(route: route, result: result))
         default:
             throw RouterError.canNotMakeView
         }

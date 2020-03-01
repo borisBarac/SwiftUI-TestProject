@@ -23,6 +23,10 @@ struct ContentView: View, BaseView {
     @State private var searchText = ""
     @State private var showCancelButton: Bool = false
 
+    private var detailRoute: Route? {
+        return try? globalBootStrap.router.calculate(route: Route(routePath: .detail))
+    }
+
     var body: some View {
         NavigationView {
             VStack {
@@ -70,7 +74,7 @@ struct ContentView: View, BaseView {
     }
 }
 
-private struct EmptyContentView: View {
+struct EmptyContentView: View {
     var body: some View {
         Text("There is no data, search for sometthing")
     }

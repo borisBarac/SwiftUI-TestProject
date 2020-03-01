@@ -13,7 +13,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
          #if DEBUG
         guard let contentView = try? globalBootStrap.router.makeView(route: Route(routePath: .main), data: nil) else {

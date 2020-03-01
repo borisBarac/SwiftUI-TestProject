@@ -12,13 +12,30 @@ import SwiftUI
 struct ContentRow: View {
     var result: ItunesResult
 
-    var body: some View {
-        HStack {
-            Text("KIND: \(result.kind ?? "")")
-            Spacer()
-            Text("Name: \(result.trackName ?? "")")
-            Spacer()
+    func makeDestination() -> AnyView {
+        if let detailView = try? globalBootStrap.router.makeView(route: Route(routePath: .detail), data: result) {
+            return AnyView(detailView)
+        } else {
+            return AnyView(EmptyContentView())
         }
+
+    }
+
+    var body: some View {
+        NavigationLink(destination: {
+            self.makeDestination()
+        }()) {
+            HStack(spacing: 16) {
+                Text("KIND: \(result.kind ?? "")")
+                    .modifier(PrimaryLabel())
+                Text("Name: \(result.trackName ?? "")")
+                    .modifier(PrimaryLabel())
+            }
+        }
+
+
+
+        
     }
 }
 
