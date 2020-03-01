@@ -29,4 +29,11 @@ class RouterTests: XCTestCase {
         XCTAssert(pass)
     }
 
+    func testMakeView() {
+        let main = try? router.makeView(route: Route(routePath: .main), data: nil)
+        let detail = try? router.makeView(route: Route(routePath: .detail), data: ItunesResult(kind: "", collectionName: "", trackName: "", artworkUrl100: nil))
+
+        XCTAssert((main != nil) && (detail != nil))
+    }
+
 }
