@@ -9,23 +9,26 @@
 import SwiftUI
 
 struct DetailView: View {
-
     let route: Route
+    let result: ItunesResult
 
     var body: some View {
         Group {
             if route.hasNavigation {
                 NavigationView {
-                    CoreView()
+                    CoreView(result: result)
                 }
             } else {
-                CoreView()
+                CoreView(result: result)
             }
         }
     }
 }
 
 private struct CoreView: View {
+    @State private var showingSheet = false
+    let result: ItunesResult
+
     var body: some View {
         VStack {
             Image(systemName: "person")
@@ -35,10 +38,13 @@ private struct CoreView: View {
             Text("BLAB BLA")
                 .padding(16)
             Button(action: {
-                print(2)
+                self.showingSheet = true
             }) {
                 Image(systemName: "square.and.arrow.up")
             }
+            .sheet(isPresented: $showingSheet, content: {
+                    ActivityView(activityItems: [NSURL(string: "https://swiftui.gallery")!] as [Any], applicationActivities: nil)
+            })
         }
         .navigationBarTitle("DETAIL VIEW")
     }
@@ -46,6 +52,6 @@ private struct CoreView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(route: Route(routePath: .detail))
+        DetailView(route: Route(routePath: .detail), result: ItunesResult(kind: "song", collectionName: "", trackName: "Track name", artworkUrl100: nil))
     }
 }
