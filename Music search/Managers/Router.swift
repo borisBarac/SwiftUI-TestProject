@@ -26,6 +26,7 @@ struct Route: Decodable, Encodable {
     let presentationStyle: PresentationStyle
     let embedInNavBar: Bool
     let parrentRoutePath: String?
+    // extra navigation bar
     let hasNavigation: Bool
 
     init(routePath: RoutePath, presentationStyle: PresentationStyle = .push, embedInNavBar: Bool = false, parrentRoutePath: String? = nil, hasNavigation: Bool = false) {
@@ -43,6 +44,11 @@ struct Route: Decodable, Encodable {
 
 final class Router {
 
+    enum RouterError: Error {
+        case canNotCalculateRoute
+        case canNotMakeView
+    }
+
     var windows: [UIWindow] {
         return UIApplication.shared.connectedScenes.filter { scene -> Bool in
             return scene.activationState == .foregroundActive
@@ -53,22 +59,25 @@ final class Router {
     }
 
     // checks for logIn, local data, some upgrade option, what ever can be done here
-    func calculate(route: Route) -> Result<Route?, Never> {
-
-        // network checks need to be locked with DispatchSemaphore
-
+    func calculate(route: Route) throws -> Route {
         switch route.routePath {
         case .detail:
-            return .success(Route(routePath: .detail, presentationStyle: .push, embedInNavBar: false, parrentRoutePath: nil))
+            return Route(routePath: .detail, presentationStyle: .push, embedInNavBar: false, parrentRoutePath: nil)
         case .main:
-            return .success(Route(routePath: .main, presentationStyle: .root, embedInNavBar: true, parrentRoutePath: nil))
+            return Route(routePath: .main, presentationStyle: .root, embedInNavBar: true, parrentRoutePath: nil)
         default:
-            return .success(nil)
+            throw RouterError.canNotCalculateRoute
         }
     }
 
     func makeView(route: Route, data: Any?) throws -> some View {
-        return ContentView()
+        let route = try? calculate(route: route)
+        switch route?.routePath {
+        case .main:
+            return ContentView(route: route, data: nil, model: nil, viewState: .empty)
+        default:
+            throw RouterError.canNotMakeView
+        }
     }
 
 }

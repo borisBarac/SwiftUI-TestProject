@@ -6,4 +6,27 @@
 //  Copyright © 2020 Boris Barac. All rights reserved.
 //
 
-import Foundation
+import XCTest
+@testable import Music_search
+
+class RouterTests: XCTestCase {
+
+    var router: Router!
+
+    override func setUp() {
+        router = Router()
+    }
+
+    override func tearDown() {
+    }
+
+    func testMainRoute() {
+        guard let route = try? router.calculate(route: Route(routePath: .main)) else {
+            XCTFail("ROUTE IS NIL")
+            return
+        }
+        let pass = route.embedInNavBar == true && route.hasNavigation == false && route.routePath == .main && route.presentationStyle == .root
+        XCTAssert(pass)
+    }
+
+}

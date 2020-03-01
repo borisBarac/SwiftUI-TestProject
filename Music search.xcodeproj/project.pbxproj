@@ -19,6 +19,7 @@
 		C61B5060240AA55800F50A4B /* BootStrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B505F240AA55800F50A4B /* BootStrap.swift */; };
 		C61B5062240AA5A200F50A4B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B5061240AA5A200F50A4B /* Router.swift */; };
 		C66798CF240AE824005183C6 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66798CE240AE824005183C6 /* RouterTests.swift */; };
+		C66798D1240BD049005183C6 /* BaseUIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66798D0240BD049005183C6 /* BaseUIs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		C61B505F240AA55800F50A4B /* BootStrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootStrap.swift; sourceTree = "<group>"; };
 		C61B5061240AA5A200F50A4B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		C66798CE240AE824005183C6 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		C66798D0240BD049005183C6 /* BaseUIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				C61B5038240AA27900F50A4B /* ContentView.swift */,
+				C66798D0240BD049005183C6 /* BaseUIs.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				C61B5037240AA27900F50A4B /* SceneDelegate.swift in Sources */,
 				C61B505B240AA47600F50A4B /* ModelStructs.swift in Sources */,
 				C61B5062240AA5A200F50A4B /* Router.swift in Sources */,
+				C66798D1240BD049005183C6 /* BaseUIs.swift in Sources */,
 				C61B505D240AA48900F50A4B /* NetworkingManager.swift in Sources */,
 				C61B5060240AA55800F50A4B /* BootStrap.swift in Sources */,
 				C61B5039240AA27900F50A4B /* ContentView.swift in Sources */,

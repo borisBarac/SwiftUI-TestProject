@@ -8,23 +8,31 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct ContentView: View, BaseView {
+    var route: Route?
+    var data: Any?
+    var model: Any?
+
+    enum ViewState {
+        case empty
+        case list
+    }
+
+    var viewState = ViewState.empty
+
     var body: some View {
-        Text("Detail")
+        switch viewState {
+        case .empty:
+            return Text("empty")
+        case .list:
+            return Text("List")
+        }
     }
 }
 
-struct ContentView: View {
-    @State var showingDetail = false
-
+private struct EmptyContentView: View {
     var body: some View {
-        Button(action: {
-            self.showingDetail = true
-        }) {
-            Text("Show Detail")
-        }.sheet(isPresented: $showingDetail) {
-            DetailView()
-        }
+        Text("EM")
     }
 }
 
