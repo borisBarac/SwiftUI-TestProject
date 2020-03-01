@@ -20,6 +20,8 @@
 		C61B5062240AA5A200F50A4B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B5061240AA5A200F50A4B /* Router.swift */; };
 		C66798CF240AE824005183C6 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66798CE240AE824005183C6 /* RouterTests.swift */; };
 		C66798D1240BD049005183C6 /* BaseUIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66798D0240BD049005183C6 /* BaseUIs.swift */; };
+		C6F5A557240BEB3A001D6741 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5A556240BEB3A001D6741 /* UIExtensions.swift */; };
+		C6F5A559240BF121001D6741 /* ContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F5A558240BF121001D6741 /* ContentRow.swift */; };
 		C6F90F3E240BE2A50042DBA1 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F90F3D240BE2A50042DBA1 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		C61B5061240AA5A200F50A4B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		C66798CE240AE824005183C6 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		C66798D0240BD049005183C6 /* BaseUIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIs.swift; sourceTree = "<group>"; };
+		C6F5A556240BEB3A001D6741 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		C6F5A558240BF121001D6741 /* ContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRow.swift; sourceTree = "<group>"; };
 		C6F90F3D240BE2A50042DBA1 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +131,7 @@
 			children = (
 				C6F90F3C240BE2910042DBA1 /* ContentView */,
 				C66798D0240BD049005183C6 /* BaseUIs.swift */,
+				C6F5A556240BEB3A001D6741 /* UIExtensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			children = (
 				C61B5038240AA27900F50A4B /* ContentView.swift */,
 				C6F90F3D240BE2A50042DBA1 /* ContentViewModel.swift */,
+				C6F5A558240BF121001D6741 /* ContentRow.swift */,
 			);
 			path = ContentView;
 			sourceTree = "<group>";
@@ -288,10 +294,12 @@
 				C61B5035240AA27900F50A4B /* AppDelegate.swift in Sources */,
 				C61B5037240AA27900F50A4B /* SceneDelegate.swift in Sources */,
 				C61B505B240AA47600F50A4B /* ModelStructs.swift in Sources */,
+				C6F5A557240BEB3A001D6741 /* UIExtensions.swift in Sources */,
 				C61B5062240AA5A200F50A4B /* Router.swift in Sources */,
 				C66798D1240BD049005183C6 /* BaseUIs.swift in Sources */,
 				C61B505D240AA48900F50A4B /* NetworkingManager.swift in Sources */,
 				C61B5060240AA55800F50A4B /* BootStrap.swift in Sources */,
+				C6F5A559240BF121001D6741 /* ContentRow.swift in Sources */,
 				C61B5039240AA27900F50A4B /* ContentView.swift in Sources */,
 				C6F90F3E240BE2A50042DBA1 /* ContentViewModel.swift in Sources */,
 			);

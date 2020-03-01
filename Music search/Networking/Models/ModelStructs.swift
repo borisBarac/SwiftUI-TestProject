@@ -13,7 +13,8 @@ struct MainJson: Decodable {
     let results: [ItunesResult]
 }
 
-struct ItunesResult: Decodable {
+struct ItunesResult: Decodable, Identifiable {
+    let id = UUID()
     let kind: String?
     let collectionName: String?
     let trackName: String?

@@ -11,31 +11,68 @@ import Combine
 
 struct ContentView: View, BaseView {
     typealias Model = ContentViewModel
-
-    var route: Route?
-    var data: Any?
-    var model = Model()
-
     enum ViewState {
         case empty
         case list
     }
 
-    var viewState = ViewState.empty
+    var route: Route?
+    var data: Any?
+    @ObservedObject var model = Model()
+
+    @State private var searchText = ""
+    @State private var showCancelButton: Bool = false
 
     var body: some View {
-        switch viewState {
-        case .empty:
-            return Text("empty")
-        case .list:
-            return Text("List")
+        NavigationView {
+            VStack {
+                HStack {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+
+                        TextField("search", text: $searchText, onEditingChanged: { isEditing in
+                            self.showCancelButton = true
+                        }, onCommit: {
+                            self.model.search(text: self.searchText)
+                        }).foregroundColor(.primary)
+
+                        Button(action: {
+                            self.searchText = ""
+                            self.model.clear()
+                        }) {
+                            Image(systemName: "xmark.circle.fill").opacity(searchText == "" ? 0 : 1)
+                        }
+                    }
+                    .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
+                    .foregroundColor(.secondary)
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(10.0)
+
+                    if showCancelButton  {
+                        Button("Cancel") {
+                            UIApplication.shared.endEditing()
+                            self.searchText = ""
+                            self.showCancelButton = false
+                        }
+                        .foregroundColor(Color(.systemBlue))
+                    }
+                }
+                .padding(.horizontal)
+                .navigationBarHidden(showCancelButton)
+
+                List(model.results, id: \.id) { result in
+                    ContentRow(result: result)
+                }
+                .navigationBarTitle(Text("Search"))
+                .resignKeyboardOnDragGesture()
+            }
         }
     }
 }
 
 private struct EmptyContentView: View {
     var body: some View {
-        Text("EM")
+        Text("There is no data, search for sometthing")
     }
 }
 

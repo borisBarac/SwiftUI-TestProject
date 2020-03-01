@@ -15,10 +15,11 @@ class ContentViewModel: ObservableObject {
     let didChange = PassthroughSubject<ContentViewModel,Never>()
     let networkManager = globalBootStrap.networkManager
 
-    var results = [ItunesResult]() {
-        didSet {
-            didChange.send(self)
-        }
+    var results = [ItunesResult]()
+    @Published var viewState = ContentView.ViewState.empty
+
+    func clear() {
+        results.removeAll()
     }
 
     func search(text: String) {
@@ -30,9 +31,10 @@ class ContentViewModel: ObservableObject {
             switch result {
             case .success(let json):
                 self.results = json.results
+                self.viewState = json.results.count > 0 ? .list : .empty
             case .failure(let err):
                 debugPrint(err.localizedDescription)
-                self.results.removeAll()
+                self.clear()
             }
         }
 
