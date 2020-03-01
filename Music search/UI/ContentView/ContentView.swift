@@ -7,11 +7,14 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View, BaseView {
+    typealias Model = ContentViewModel
+
     var route: Route?
     var data: Any?
-    var model: Any?
+    var model = Model()
 
     enum ViewState {
         case empty

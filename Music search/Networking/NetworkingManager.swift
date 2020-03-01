@@ -14,7 +14,11 @@ extension NSNotification.Name {
 
 final class NetworkManager {
     enum EndPoints: String {
-        case main = "https://s3-eu-west-1.amazonaws.com/skyscanner-prod-takehome-test/flights.json"
+        case main = "https://itunes.apple.com/search"
+
+        var url: URL! {
+            return URL(string: self.rawValue)
+        }
     }
 
     enum NetworkError: Error {
@@ -23,12 +27,20 @@ final class NetworkManager {
 
     private let urlSession = URLSession.shared
 
-    func getJson(url: String, completionHandler: @escaping (Result<MainJson, NetworkError>) -> Void) {
-        guard let request = URL(string: url) else {
-            return
+    func buildSearchUrl(text: String) -> URL? {
+        guard let base = EndPoints.main.url else {
+            return nil
         }
 
-        let task = urlSession.dataTask(with: request){ (data, response, error) in
+        let query = URLQueryItem(name: "term", value: text.replacingOccurrences(of: " ", with: "+"))
+        var components = URLComponents(url: base, resolvingAgainstBaseURL: false)
+        components?.queryItems = [query]
+
+        return components?.url
+    }
+
+    func getJson(url: URL, completionHandler: @escaping (Result<MainJson, NetworkError>) -> Void) {
+        let task = urlSession.dataTask(with: url){ (data, response, error) in
             debugPrint(response as Any)
             guard let data = data else {
                 completionHandler(.failure(.didNotWork))

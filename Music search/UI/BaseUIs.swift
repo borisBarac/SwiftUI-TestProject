@@ -9,9 +9,11 @@
 import SwiftUI
 
 protocol BaseView {
+    associatedtype Model: ObservableObject
+
     var route: Route? { get }
     var data: Any? { get set }
-    var model: Any?{ get set }
+    var model: Model { get set }
 }
 
 struct RootErrorView: View {

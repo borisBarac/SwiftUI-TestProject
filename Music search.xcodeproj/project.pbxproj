@@ -13,13 +13,14 @@
 		C61B503B240AA27900F50A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C61B503A240AA27900F50A4B /* Assets.xcassets */; };
 		C61B503E240AA27900F50A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C61B503D240AA27900F50A4B /* Preview Assets.xcassets */; };
 		C61B5041240AA27900F50A4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C61B503F240AA27900F50A4B /* LaunchScreen.storyboard */; };
-		C61B504C240AA27900F50A4B /* Music_searchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B504B240AA27900F50A4B /* Music_searchTests.swift */; };
+		C61B504C240AA27900F50A4B /* NetworkingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B504B240AA27900F50A4B /* NetworkingManagerTests.swift */; };
 		C61B505B240AA47600F50A4B /* ModelStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B505A240AA47600F50A4B /* ModelStructs.swift */; };
 		C61B505D240AA48900F50A4B /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B505C240AA48900F50A4B /* NetworkingManager.swift */; };
 		C61B5060240AA55800F50A4B /* BootStrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B505F240AA55800F50A4B /* BootStrap.swift */; };
 		C61B5062240AA5A200F50A4B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B5061240AA5A200F50A4B /* Router.swift */; };
 		C66798CF240AE824005183C6 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66798CE240AE824005183C6 /* RouterTests.swift */; };
 		C66798D1240BD049005183C6 /* BaseUIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66798D0240BD049005183C6 /* BaseUIs.swift */; };
+		C6F90F3E240BE2A50042DBA1 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F90F3D240BE2A50042DBA1 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,7 @@
 		C61B5040240AA27900F50A4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C61B5042240AA27900F50A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C61B5047240AA27900F50A4B /* Music searchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Music searchTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C61B504B240AA27900F50A4B /* Music_searchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music_searchTests.swift; sourceTree = "<group>"; };
+		C61B504B240AA27900F50A4B /* NetworkingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManagerTests.swift; sourceTree = "<group>"; };
 		C61B504D240AA27900F50A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C61B505A240AA47600F50A4B /* ModelStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStructs.swift; sourceTree = "<group>"; };
 		C61B505C240AA48900F50A4B /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -50,6 +51,7 @@
 		C61B5061240AA5A200F50A4B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		C66798CE240AE824005183C6 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		C66798D0240BD049005183C6 /* BaseUIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIs.swift; sourceTree = "<group>"; };
+		C6F90F3D240BE2A50042DBA1 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +115,7 @@
 		C61B504A240AA27900F50A4B /* Music searchTests */ = {
 			isa = PBXGroup;
 			children = (
-				C61B504B240AA27900F50A4B /* Music_searchTests.swift */,
+				C61B504B240AA27900F50A4B /* NetworkingManagerTests.swift */,
 				C61B504D240AA27900F50A4B /* Info.plist */,
 				C66798CE240AE824005183C6 /* RouterTests.swift */,
 			);
@@ -123,7 +125,7 @@
 		C61B5056240AA3FF00F50A4B /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C61B5038240AA27900F50A4B /* ContentView.swift */,
+				C6F90F3C240BE2910042DBA1 /* ContentView */,
 				C66798D0240BD049005183C6 /* BaseUIs.swift */,
 			);
 			path = UI;
@@ -171,6 +173,15 @@
 				C61B5061240AA5A200F50A4B /* Router.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		C6F90F3C240BE2910042DBA1 /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				C61B5038240AA27900F50A4B /* ContentView.swift */,
+				C6F90F3D240BE2A50042DBA1 /* ContentViewModel.swift */,
+			);
+			path = ContentView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 				C61B505D240AA48900F50A4B /* NetworkingManager.swift in Sources */,
 				C61B5060240AA55800F50A4B /* BootStrap.swift in Sources */,
 				C61B5039240AA27900F50A4B /* ContentView.swift in Sources */,
+				C6F90F3E240BE2A50042DBA1 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C66798CF240AE824005183C6 /* RouterTests.swift in Sources */,
-				C61B504C240AA27900F50A4B /* Music_searchTests.swift in Sources */,
+				C61B504C240AA27900F50A4B /* NetworkingManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

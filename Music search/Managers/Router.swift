@@ -74,7 +74,7 @@ final class Router {
         let route = try? calculate(route: route)
         switch route?.routePath {
         case .main:
-            return ContentView(route: route, data: nil, model: nil, viewState: .empty)
+            return ContentView(route: route, data: nil, viewState: .empty)
         default:
             throw RouterError.canNotMakeView
         }
