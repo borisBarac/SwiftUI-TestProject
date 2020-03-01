@@ -29,9 +29,16 @@ private struct CoreView: View {
     @State private var showingSheet = false
     let result: ItunesResult
 
+    var remoteImage: RemoteImage? {
+        guard let url = result.artworkUrl else {
+            return nil
+        }
+        return RemoteImage(url: url)
+    }
+
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            RemoteImage(url: result.artworkUrl!)
+            remoteImage
             Text("Kind: \(result.kind ?? "")")
                 .modifier(PrimaryLabel())
             Text("TrackName: \(result.trackName  ?? "")")
