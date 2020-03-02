@@ -10,16 +10,16 @@ import SwiftUI
 
 struct DetailView: View {
     let route: Route?
-    let result: ItunesResult
+    @State var result: ItunesResult
 
     var body: some View {
         Group {
             if route?.hasNavigation ?? false {
                 NavigationView {
-                    CoreView(result: result)
+                    CoreView(result: $result)
                 }
             } else {
-                CoreView(result: result)
+                CoreView(result: $result)
             }
         }
     }
@@ -27,7 +27,7 @@ struct DetailView: View {
 
 private struct CoreView: View {
     @State private var showingSheet = false
-    let result: ItunesResult
+    @Binding var result: ItunesResult
 
     var remoteImage: RemoteImage? {
         guard let url = result.artworkUrl else {
@@ -65,7 +65,8 @@ struct DetailView_Previews: PreviewProvider {
 }
 
 struct CoreView_Previews: PreviewProvider {
+    @State static var staticResult = ItunesResult(kind: "song", collectionName: "", trackName: "Track name", artworkUrl100: nil)
     static var previews: some View {
-        CoreView(result: ItunesResult(kind: "song", collectionName: "", trackName: "Track name", artworkUrl100: nil))
+        CoreView(result: $staticResult)
     }
 }
